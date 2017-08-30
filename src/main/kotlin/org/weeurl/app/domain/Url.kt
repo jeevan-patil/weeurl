@@ -3,7 +3,7 @@ package org.weeurl.app.domain
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.index.Indexed
 import org.springframework.data.mongodb.core.mapping.Document
-import java.util.Date
+import java.util.*
 
 /**
  * @author jeevan
@@ -12,6 +12,7 @@ import java.util.Date
 data class Url(
     @Id var id: String,
     @Indexed var url: String,
+    @Indexed var handle: String,
     @Indexed var shortened: String,
     val createdDate: Date
 )
