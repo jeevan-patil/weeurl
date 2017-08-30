@@ -30,8 +30,7 @@ class WebController(val urlService: UrlService) {
       headers.add("Location", url.url)
       return ResponseEntity(headers, HttpStatus.MOVED_PERMANENTLY)
     }
-
-
+    
     return ResponseEntity("No URL found.", HttpStatus.OK)
   }
 }
