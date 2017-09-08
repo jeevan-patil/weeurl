@@ -11,12 +11,7 @@ interface UrlService {
    * Shorten the URL.
    */
   fun shorten(url: String): String
-
-  /**
-   * Find Url by shortened string
-   */
-  fun findByShortened(shortened: String): Url
-
+  
   /**
    * Find by handle
    */

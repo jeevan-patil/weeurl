@@ -13,6 +13,5 @@ data class Url(
     @Id var id: String,
     @Indexed var url: String,
     @Indexed var handle: String,
-    @Indexed var shortened: String,
     val createdDate: Date
 )

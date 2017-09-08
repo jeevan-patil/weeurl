@@ -21,7 +21,7 @@ class WebController(val urlService: UrlService) {
     return "index"
   }
 
-  @GetMapping("/redirect/{handle}")
+  @GetMapping("/{handle}")
   fun redirect(@PathVariable handle: String,
                response: HttpServletResponse): ResponseEntity<String> {
     val url = urlService.findByHandle(handle)

@@ -1,5 +1,6 @@
 package org.weeurl.app.service
 
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import org.springframework.util.Assert
 import org.weeurl.app.domain.Url
@@ -13,26 +14,22 @@ import java.util.*
 @Service
 class UrlServiceImpl(val urlRepository: UrlRepository) : UrlService {
 
-  val site = "http://localhost:8080/redirect/" //"https:/wee.url/"
+  @Value("\${server.base.url}")
+  private lateinit var baseUrl: String
 
   override fun shorten(url: String): String {
     Assert.notNull(url, "URL can not be empty.")
 
     var existingUrl = urlRepository.findByUrl(url)
     existingUrl?.let {
-      return existingUrl.shortened
+      return baseUrl + existingUrl.handle
     }
 
     val handle = SecurityUtil.randomString()
-    val shortened = site + handle
-    val urlDetails = Url(UUID.randomUUID().toString(), url, handle, shortened, Date())
+    val shortened = baseUrl + handle
+    val urlDetails = Url(UUID.randomUUID().toString(), url, handle, Date())
     urlRepository.save(urlDetails)
     return shortened
-  }
-
-  override fun findByShortened(shortened: String): Url {
-    Assert.notNull(shortened, "This is not a proper shortened url.")
-    return urlRepository.findByShortened(shortened)
   }
 
   override fun findByHandle(handle: String): Url {

@@ -9,9 +9,7 @@ import org.weeurl.app.domain.Url
  */
 @Repository
 interface UrlRepository : MongoRepository<Url, String> {
-
-  fun findByShortened(shortened: String): Url
-
+  
   fun findByHandle(handle: String): Url
 
   fun findByUrl(url: String): Url

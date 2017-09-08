@@ -21,11 +21,11 @@ class RandomString {
 
   private val alphanumeric = upper + lower + digits
 
-  private lateinit var random: Random
+  private var random: Random
 
-  private lateinit var symbols: CharArray
+  private var symbols: CharArray
 
-  private lateinit var buf: CharArray
+  private var buf: CharArray
 
   constructor(length: Int, random: Random) {
     if (length < 1) throw IllegalArgumentException()

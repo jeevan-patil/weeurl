@@ -5,7 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import org.weeurl.app.service.UrlService
 import org.weeurl.app.util.Endpoints
+import org.weeurl.app.util.UrlUtil
 import javax.websocket.server.PathParam
+
 
 /**
  * @author jeevan
@@ -17,6 +19,7 @@ class UrlController(val urlService: UrlService) {
 
   @GetMapping("/shorten")
   fun shorten(@PathParam(value = "url") url: String): String {
+    UrlUtil.validateUrl(url)
     return urlService.shorten(url)
   }
 }
