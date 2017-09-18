@@ -37,5 +37,8 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}")
 	compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
+    compile("org.webjars:bootstrap:3.3.7")
+    compile("org.webjars:jquery:2.2.1")
+	compile("net.sourceforge.nekohtml:nekohtml:1.9.22")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }

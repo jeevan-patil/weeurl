@@ -2,6 +2,9 @@ spring:
   data:
     mongodb:
       database: weeurl
+  thymeleaf:
+    mode: LEGACYHTML5
+    cache: false
 
 server:
   base:
